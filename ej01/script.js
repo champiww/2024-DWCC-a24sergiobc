@@ -120,3 +120,14 @@ if (IMC1 > IMC2) {
             ')!'
     );
 }
+
+/*EJERCICIO FUNCIONES*/
+
+console.log('--EJERCICIO Funciones');
+
+function funcion(precio, porcentaje) {
+    let descuento = (precio * porcentaje) / 100;
+    return precio - descuento;
+}
+
+console.log(funcion(100, 10));
