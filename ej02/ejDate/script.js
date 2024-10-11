@@ -2,7 +2,7 @@
 //Date
 /*Ej 02*/
 function ej02Date(numMes, numAno) {
-    let fecha = new Date(numAno, numMes + 1);
+    let fecha = new Date(numAno, numMes);
     fecha.setDate(0);
     return fecha.getDate();
 }
@@ -24,7 +24,7 @@ let fecha1 = new Date(2024, 5, 25);
 console.log(fecha1);
 
 console.log('Ej02');
-console.log(ej02Date(1, 2024));
+console.log(ej02Date(2, 2024));
 
 console.log('Ej03');
 let fecha2 = new Date(2024, 9, 11); // 12 y 13 fin de semana
