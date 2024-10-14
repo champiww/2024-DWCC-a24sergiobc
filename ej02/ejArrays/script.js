@@ -91,3 +91,46 @@ console.log(allPlayers);
 console.log('Apartado D');
 let players1Final = players1.concat(['Thiago', 'Coutinho', 'Periscic']);
 console.log(players1Final);
+
+//Ejercicio 02
+function stringInCamelCaseEj02(name) {
+    let _index = name.indexOf('_');
+    let letter = name.charAt(_index + 1).toUpperCase();
+    name = name.toLowerCase().replace('_', '');
+    name = name.replace(name.charAt(_index), letter);
+    return name;
+}
+
+console.log('Ejercicio02');
+
+const array2 = ['first_name', 'last_NAME'];
+let [name1, name2] = array2;
+
+console.log(stringInCamelCaseEj02(name1));
+console.log(stringInCamelCaseEj02(name2));
+
+//Ejercicio 03
+console.log('Ejercicio03');
+
+function formatArrayEj03(array) {
+    let temp = array.split(';');
+    let [name, from, destination, hour] = temp;
+    name = name.replace('_', '');
+    name = name.replace('_', ' ');
+    from = from.slice(0, 3).toUpperCase();
+    destination = destination.slice(0, 3).toUpperCase();
+    hour = hour.replace(':', 'h');
+
+    return `${name} ${from} ${destination} (${hour})`;
+}
+
+const flightsInfo =
+    '_Delayed_Departure;scq93766109;bio2133758440;11:25+_Arrival;bio0943384722;scq93766109;11:45+_Delayed_Arrival;svq7439299980;scq93766109;12:05+Departure;scq93766109;svq2323639855;12:30';
+
+let resultado = '';
+
+let flightsInfoSplit = flightsInfo.split('+');
+
+for (let i = 0; i < flightsInfoSplit.length; i++) {
+    console.log(formatArrayEj03(flightsInfoSplit[i]));
+}
