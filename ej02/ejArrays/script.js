@@ -29,11 +29,11 @@ console.log(ej01(1, numeros));
 console.log('Ejercicio 02');
 let array = ['peras', 'mazás', 'kiwis', 'plátanos', 'mandarinas'];
 array.splice(1, 1);
-console.log(array);
+console.log(array.join(', '));
 array.splice(3, 0, 'laranxas', 'sandía');
-console.log(array);
+console.log(array.join(', '));
 array.splice(1, 1, 'cereixas', 'nésperas');
-console.log(array);
+console.log(array.join(', '));
 
 //Ej03
 console.log('Ejercicio 03');
@@ -72,24 +72,21 @@ const players = [
 ];
 
 console.log('Apartado A');
-let players1, players2;
-[players1, players2] = players;
+let [players1, players2] = players;
 console.log(players1);
 console.log(players2);
 
 console.log('Apartado B');
-let gk, fieldPlayers;
-[gk, ...fieldPlayers] = players1;
+let [gk, ...fieldPlayers] = players1;
 console.log(gk);
 console.log(fieldPlayers);
 
 console.log('Apartado C');
-let allPlayers = [];
-allPlayers = players1.concat(players2);
+let allPlayers = [...players1, ...players2];
 console.log(allPlayers);
 
 console.log('Apartado D');
-let players1Final = players1.concat(['Thiago', 'Coutinho', 'Periscic']);
+let players1Final = [...players1, 'Thiago', 'Coutinho', 'Periscic'];
 console.log(players1Final);
 
 //Ejercicio 02
