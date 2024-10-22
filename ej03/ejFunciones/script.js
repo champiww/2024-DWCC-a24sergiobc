@@ -83,19 +83,45 @@ const dniValido = (dni) => {
 console.log(dniValido('123456789A'));
 
 //Ej08
-const desgloseBilletesMonedas = (num) => {
-    const arrayCantidades = [50, 20, 10, 5, 1, 0.5, 0.2, 0.1, 0.05, 0.01];
-    let copiaNum = num;
-    for (const cantidad of arrayCantidades) {
-        if (num >= cantidad) {
-            copiaNum = copiaNum - cantidad;
-            console.log(copiaNum);
-        }
+const operacionesDesgloseBilletesMonedas = (copiaNum, cantidad) => {
+    if (copiaNum >= cantidad) {
+        copiaNum = (copiaNum - cantidad).toFixed(2);
     }
     return copiaNum;
 };
-console.log(desgloseBilletesMonedas(21.51));
+
+const desgloseBilletesMonedas = (num) => {
+    const arrayTiposMonedas = [
+        50, 20, 10, 5, 1, 0.5, 0.2, 0.1, 0.05, 0.02, 0.01,
+    ];
+    const arrayCantidades = [];
+    let copiaNum = num;
+
+    for (const cantidad of arrayTiposMonedas) {
+        while (copiaNum >= cantidad) {
+            copiaNum = operacionesDesgloseBilletesMonedas(copiaNum, cantidad);
+            arrayCantidades.push(cantidad);
+        }
+    }
+
+    return arrayCantidades;
+};
+console.log(desgloseBilletesMonedas(46.53));
 
 //Ej09
-const buscarPatron = (texto, patron) => {};
-//console.log(buscarPatron('000111101000ABCHA', '00'));
+const buscarPatron = (texto, patron) => {
+    let contador = 0;
+    texto = texto.toLowerCase();
+    patron = patron.toLowerCase();
+
+    for (let i = 0; i <= texto.length; i++) {
+        if (texto.substring(i, i + patron.length) === patron) {
+            contador++;
+        }
+    }
+
+    return contador;
+};
+console.log(buscarPatron('000111101000ABCHA', '00'));
+
+//Ej10
