@@ -125,3 +125,87 @@ const buscarPatron = (texto, patron) => {
 console.log(buscarPatron('000111101000ABCHA', '00'));
 
 //Ej10
+
+const inicioXornada = '07:30';
+const finalXornada = '17:45';
+
+function axendarReunion(horaInicioReunion, duracionEnMinutos) {
+    // A función debe devolver true se a reunión ocorre dentro da xornada laboral
+    // e false en caso contrario
+
+    const inicioXornadaHora = parseInt(inicioXornada.substring(0, 2));
+    const inicioXornadaMin = parseInt(inicioXornada.substring(3, 5));
+
+    const finalXornadaHora = parseInt(finalXornada.substring(0, 2));
+    const finalXornadaMin = parseInt(finalXornada.substring(3, 5));
+
+    let horaInicioReunionHora, horaInicioReunionMin;
+
+    if (horaInicioReunion.length == 4) {
+        horaInicioReunionHora = parseInt(horaInicioReunion.substring(0, 1));
+        horaInicioReunionMin = parseInt(horaInicioReunion.substring(2, 4));
+    } else {
+        horaInicioReunionHora = parseInt(horaInicioReunion.substring(0, 2));
+        horaInicioReunionMin = parseInt(horaInicioReunion.substring(3, 5));
+    }
+
+    let finalReunionHora = 0;
+    let finalReunionMin = 0;
+
+    if (duracionEnMinutos >= 60) {
+        let horasReunion = Math.round(parseInt(duracionEnMinutos) / 60);
+        let minReunion = parseInt(duracionEnMinutos) / (60 * horasReunion);
+        finalReunionHora = horaInicioReunionHora + horasReunion;
+        finalReunionMin = horaInicioReunionMin + minReunion;
+    } else {
+        finalReunionHora = horaInicioReunionHora;
+        finalReunionMin = horaInicioReunionMin + parseInt(duracionEnMinutos);
+    }
+
+    if (
+        inicioXornadaHora >= horaInicioReunionHora &&
+        inicioXornadaMin > horaInicioReunionMin
+    ) {
+        return false; // Reunion empeza fora de horario
+    } else if (
+        finalXornadaHora <= finalReunionHora &&
+        finalXornadaMin < finalReunionMin
+    ) {
+        return false; // Reunion acaba fora de horario
+    } else {
+        return true;
+    }
+}
+// Comprobacións
+console.assert(
+    axendarReunion('7:00', 15) == false,
+    'Fallo comprobando axendarReunión("7:00", 15) == false'
+);
+console.assert(
+    axendarReunion('7:15', 30) == false,
+    'Fallo comprobando axendarReunión("7:15", 30) == false'
+);
+console.assert(
+    axendarReunion('7:30', 30) == true,
+    'Fallo comprobando axendarReunión("7:30", 30) == true'
+);
+console.assert(
+    axendarReunion('11:30', 60) == true,
+    'Fallo comprobando axendarReunion("11:30", 60) == true'
+);
+console.assert(
+    axendarReunion('17:00', 45) == true,
+    'Fallo comprobando axendarReunion("17:00", 45) == true'
+);
+console.assert(
+    axendarReunion('17:30', 30) == false,
+    'Fallo comprobando axendarReunion("17:30", 30) == false'
+);
+
+//Ej11
+let arrayBuscaMinas = [
+    [0, 0, -1, 0],
+    [0, -1, -1, 0],
+];
+
+const buscaMinas = (arrayEntrada) => {};
