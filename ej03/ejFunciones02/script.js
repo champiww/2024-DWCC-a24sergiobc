@@ -13,11 +13,7 @@ console.log(resultado);
 const numeros = [9, 8, 7, 6, 5, 4, 3, 2, 1];
 
 let resultado2 = numeros.reduce((valorMinimo, valorActual) => {
-    if (valorActual < valorMinimo) {
-        return valorActual;
-    } else {
-        return valorMinimo;
-    }
+    return valorActual < valorMinimo ? valorActual : valorMinimo;
 });
 
 console.log(resultado2);
