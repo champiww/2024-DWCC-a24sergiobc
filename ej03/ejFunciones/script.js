@@ -201,11 +201,3 @@ console.assert(
     axendarReunion('17:30', 30) == false,
     'Fallo comprobando axendarReunion("17:30", 30) == false'
 );
-
-//Ej11
-let arrayBuscaMinas = [
-    [0, 0, -1, 0],
-    [0, -1, -1, 0],
-];
-
-const buscaMinas = (arrayEntrada) => {};
