@@ -93,9 +93,8 @@ console.log(arrayNumerosOrdenado);
 
 //Ej04
 console.log('Ej 04');
-let max = 1;
-let numMasAlto = arrayNumeros.reduce((valorMinimo, valorActual) => {
-    return valorActual > valorMinimo ? valorActual : valorMinimo;
+let numMasAlto = arrayNumeros.reduce((valorMax, valorActual) => {
+    return valorActual > valorMax ? valorActual : valorMax;
 });
 console.log(numMasAlto);
 
