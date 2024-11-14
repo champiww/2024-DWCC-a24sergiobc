@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div></div>
+    </body>
+</html>
+
+<script>
+    let div = document.querySelector('div');
+
+    function crearCalendario(element, ano, mes) {
+        let table = document.createElement('table');
+
+        let tr = document.createElement('tr');
+        tr.innerText = 'aaa';
+        table.append(tr);
+
+        element.append(table);
+    }
+
+    crearCalendario(div, 2022, 11);
+
+    document.body.append(div);
+</script>

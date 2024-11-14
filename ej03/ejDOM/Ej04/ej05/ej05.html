@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <ul id="listaULExercicio5">
+            <li id="one">1</li>
+            <li id="two">4</li>
+        </ul>
+    </body>
+</html>
+
+<script>
+    const ul = document.getElementById('listaULExercicio5');
+    const li1 = document.getElementById('one');
+    const li4 = document.getElementById('two');
+
+    let li2 = document.createElement('li');
+    li2.innerText = '2';
+    li1.after(li2);
+
+    let li3 = document.createElement('li');
+    li3.innerText = '3';
+    li4.before(li3);
+</script>

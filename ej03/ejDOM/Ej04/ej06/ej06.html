@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body></body>
+</html>
+
+<script>
+    function createTree(data) {
+        let ul = document.createElement('ul');
+
+        for (let dato in data) {
+            let li = document.createElement('li');
+            li.textContent = dato;
+
+            if (Object.keys(data[dato]).length > 0) {
+                //Check si hay keys dentro del objeto
+
+                li.appendChild(createTree(data[dato]));
+            }
+
+            ul.append(li);
+        }
+
+        return ul;
+    }
+
+    let arbore = {
+        Fish: {
+            trout: {},
+            salmon: {},
+        },
+        Tree: {
+            Huge: {
+                sequoia: {},
+                oak: {},
+            },
+            Flowering: {
+                'apple tree': {},
+                magnolia: {},
+            },
+        },
+    };
+
+    document.body.append(createTree(arbore));
+</script>
