@@ -10,15 +10,111 @@
     </body>
 </html>
 
+<style>
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    table {
+        border-collapse: collapse;
+    }
+    th {
+        background-color: lightgray;
+    }
+    th,
+    td {
+        text-align: center;
+        border: 1px solid black;
+        padding: 0.3em;
+    }
+</style>
+
 <script>
     let div = document.querySelector('div');
 
+    let listaDiasSemana = ['L', 'M', 'Me', 'X', 'V', 'S', 'D'];
+
     function crearCalendario(element, ano, mes) {
         let table = document.createElement('table');
+        let thead = document.createElement('tHead');
+        table.append(thead);
+
+        //tHead
+        listaDiasSemana.forEach((element) => {
+            let th = document.createElement('th');
+            th.innerText = element;
+            thead.append(th);
+        });
+
+        //Fecha
+        let date = new Date(`${ano}-${mes}-1`);
+        let dia1 = date.getDay();
 
         let tr = document.createElement('tr');
-        tr.innerText = 'aaa';
-        table.append(tr);
+        let tBody = document.createElement('tBody');
+        tBody.append(tr);
+        table.append(tBody);
+        let tdVacio = document.createElement('td');
+
+        switch (dia1) {
+            case 2: //Martes
+                tr.append(tdVacio);
+                tdVacio = tdVacio.cloneNode();
+                break;
+            case 3: //Miércoles
+                for (let i = 0; i < 2; i++) {
+                    tr.append(tdVacio);
+                    tdVacio = tdVacio.cloneNode();
+                }
+                break;
+            case 4: //Jueves
+                for (let i = 0; i < 3; i++) {
+                    tr.append(tdVacio);
+                    tdVacio = tdVacio.cloneNode();
+                }
+                break;
+            case 5: //Viernes
+                for (let i = 0; i < 4; i++) {
+                    tr.append(tdVacio);
+                    tdVacio = tdVacio.cloneNode();
+                }
+                break;
+            case 6: //Sábado
+                for (let i = 0; i < 5; i++) {
+                    tr.append(tdVacio);
+                    tdVacio = tdVacio.cloneNode();
+                }
+                break;
+            case 0: //Domingo
+                for (let i = 0; i < 6; i++) {
+                    tr.append(tdVacio);
+                    tdVacio = tdVacio.cloneNode();
+                }
+                break;
+        }
+
+        let td = document.createElement('td');
+
+        date = new Date(ano, mes, 0);
+        for (let i = 0; i < date.getDate(); i++) {
+            td.innerText = i + 1;
+            tr.append(td);
+            td = td.cloneNode(td);
+
+            if (tr.querySelectorAll('td').length == 7) {
+                tr = tr.cloneNode();
+                tBody.append(tr);
+            }
+        }
+
+        if (tr.querySelectorAll('td').length != 7) {
+            let tdFaltantes = 7 - tr.querySelectorAll('td').length;
+            for (let i = 0; i < tdFaltantes; i++) {
+                tr.append(tdVacio);
+                tdVacio = tdVacio.cloneNode();
+            }
+        }
 
         element.append(table);
     }
