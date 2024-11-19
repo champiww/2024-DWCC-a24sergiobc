@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <button type="button" id="ocultar">
+            Fai clic para que desapareza o texto</button
+        ><br /><br />
+        <input type="text" id="textoExercicio1" name="texto" /><br /><br />
+        <div id="texto">Texto</div>
+    </body>
+</html>
+
+<script>
+    let boton = document.getElementById('ocultar');
+    boton.addEventListener('mouseover', console.log('Mouse over'));
+    boton.addEventListener('mouseout', console.log('Mouse out'));
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <label for="tb_texto">Texto:</label>
+        <input type="text" name="tb_texto" id="tb_texto" />
+        <br /><br />
+        <button id="submit">Engadir elemento</button>
+
+        <br />
+        <ul>
+            <li>Lorem ipsum dolor sit amet</li>
+            <li>Consectetuer adipiscing elit</li>
+        </ul>
+    </body>
+</html>
+
+<script>
+    let tb_texto = document.getElementById('tb_texto');
+    let btn_submit = document.getElementById('submit');
+    let lista = document.querySelector('ul');
+
+    btn_submit.addEventListener('click', () => {
+        let li = document.createElement('li');
+        li.innerText = tb_texto.value;
+        lista.append(li);
+    });
+</script>
