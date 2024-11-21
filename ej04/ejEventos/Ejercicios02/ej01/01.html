@@ -13,9 +13,23 @@
         <div id="texto">Texto</div>
     </body>
 </html>
-
+<style></style>
 <script>
     let boton = document.getElementById('ocultar');
-    boton.addEventListener('mouseover', console.log('Mouse over'));
-    boton.addEventListener('mouseout', console.log('Mouse out'));
+    boton.addEventListener('mouseover', () => {
+        console.log('Mouse over');
+    });
+    boton.addEventListener('mouseout', () => {
+        console.log('Mouse out');
+    });
+
+    let div = document.getElementById('texto');
+    boton.addEventListener('click', () => {
+        div.style.visibility = 'hidden';
+    });
+
+    let txtb = document.getElementById('textoExercicio1');
+    txtb.addEventListener('keydown', () => {
+        div.innerText = `key='${event.key}' code='${event.code}'`;
+    });
 </script>

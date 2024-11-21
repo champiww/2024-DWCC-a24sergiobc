@@ -6,11 +6,29 @@
         <title>Document</title>
     </head>
     <body>
-        <span>Sweeties (click me)!</span>
-        <ul>
+        <span id="texto">Sweeties (click me)!</span>
+        <ul class="oculto">
             <li>Cake</li>
             <li>Donut</li>
             <li>Honey</li>
         </ul>
     </body>
 </html>
+
+<style>
+    .oculto {
+        visibility: hidden;
+    }
+    span:hover {
+        cursor: pointer;
+    }
+</style>
+
+<script>
+    let texto = document.getElementById('texto');
+    let ul = document.querySelector('ul');
+    texto.addEventListener('mouseover', () => {});
+    texto.addEventListener('click', () => {
+        ul.classList.toggle('oculto');
+    });
+</script>

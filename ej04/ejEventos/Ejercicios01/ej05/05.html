@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <img
+            src="ej04/ejEventos/Ejercicios01/ej05/2560px-A-Cat.jpg"
+            alt="cat"
+        />
+    </body>
+</html>
+
+<script>
+    let imagen = document.querySelector('img');
+
+    imagen.addEventListener('click', () => {
+        console.log('click');
+    });
+    imagen.addEventListener('dblclick', () => {
+        console.log('dblclick');
+    });
+    imagen.addEventListener('contextmenu', () => {
+        console.log('contextmenu');
+    });
+    imagen.addEventListener('mousedown', () => {
+        console.log('mousedown');
+    });
+    imagen.addEventListener('mouseup', () => {
+        console.log('mouseup');
+    });
+    imagen.addEventListener('wheel', () => {
+        console.log('wheel');
+    });
+    imagen.addEventListener('mouseover', () => {
+        console.log('mouseover');
+    });
+    imagen.addEventListener('mouseout', () => {
+        console.log('mouseout');
+    });
+    imagen.addEventListener('dragstart', () => {
+        console.log('dragstart');
+    });
+    imagen.addEventListener('drag', () => {
+        console.log('drag');
+    });
+    imagen.addEventListener('dragen', () => {
+        console.log('dragen');
+    });
+</script>
