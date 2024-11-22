@@ -53,20 +53,35 @@
         </table>
 
         <script>
+            function sortTable(table, columnIndex, dataType) {
+                let tbody = table.querySelector('tbody');
+                let rows = Array.from(tbody.rows);
+
+                if (dataType == 'number') {
+                    rows.sort((rowA, rowB) => {
+                        let cellA = rowA.cells[columnIndex].innerText;
+                        let cellB = rowB.cells[columnIndex].innerText;
+                        return Number(cellA) - Number(cellB);
+                    });
+                } else {
+                    rows.sort((rowA, rowB) => {
+                        let cellA = rowA.cells[columnIndex].innerText;
+                        let cellB = rowB.cells[columnIndex].innerText;
+                        return cellA.localeCompare(cellB);
+                    });
+                }
+
+                rows.forEach((row) => tbody.appendChild(row));
+            }
+
             let table = document.getElementById('grid');
 
-            table.addEventListener('click', () => {
-                if (event.target.tagName == 'TH') {
-                    let listaTD = document.querySelectorAll('td');
-                    if (event.target.getAttribute('dataType') == 'number') {
-                        for (let i = 0; i < listaTD.length; i += 2) {
-                            console.log(listaTD[i].innerText);
-                        }
-                    } else {
-                        for (let i = 1; i < listaTD.length; i += 2) {
-                            console.log(listaTD[i].innerText);
-                        }
-                    }
+            table.addEventListener('click', (event) => {
+                if (event.target.tagName === 'TH') {
+                    let columnIndex = event.target.cellIndex;
+                    let dataType = event.target.getAttribute('dataType');
+
+                    sortTable(table, columnIndex, dataType);
                 }
             });
         </script>
