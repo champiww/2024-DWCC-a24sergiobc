@@ -27,12 +27,57 @@
 
         <script>
             let list = document.getElementById('ul');
+            let memoriaShift;
             list.addEventListener('click', () => {
-                document.querySelectorAll('li').forEach((element) => {
-                    element != event.target
-                        ? element.classList.remove('selected')
-                        : element.classList.add('selected');
-                });
+                if (event.ctrlKey) {
+                    event.target.classList.toggle('selected');
+                } else if (event.shiftKey) {
+                    if (memoriaShift) {
+                        let listaLi = Array.from(
+                            document.querySelectorAll('li')
+                        );
+                        let start = listaLi.indexOf(memoriaShift);
+                        let end = listaLi.indexOf(event.target);
+
+                        let [low, high] = [
+                            Math.min(start, end),
+                            Math.max(start, end),
+                        ];
+
+                        listaLi.forEach((li, index) => {
+                            if (index >= low && index <= high) {
+                                li.classList.toggle('selected');
+                            }
+                        });
+
+                        // let listaLiRecortada = listaLi;
+
+                        // if (memoriaShiftIndex < currentIndex) {
+                        //     listaLiRecortada = listaLi.splice(
+                        //         memoriaShiftIndex,
+                        //         currentIndex
+                        //     );
+                        // } else {
+                        //     listaLiRecortada = listaLi
+                        //         .reverse()
+                        //         .splice(memoriaShiftIndex, currentIndex);
+                        // }
+
+                        // listaLiRecortada.forEach((element) => {
+                        //     element.classList.toggle('selected');
+                        // });
+
+                        // memoriaShift = 0;
+                    } else {
+                        memoriaShift = event.target;
+                    }
+                } else {
+                    document.querySelectorAll('li').forEach((element) => {
+                        element != event.target
+                            ? element.classList.remove('selected')
+                            : element.classList.toggle('selected');
+                    });
+                }
             });
         </script>
     </body>

@@ -42,6 +42,7 @@
                         <ul>
                             <li>Sea trout</li>
                         </ul>
+                        visibility
                     </li>
                 </ul>
             </li>
@@ -58,8 +59,27 @@
 <script>
     let principal = document.getElementById('tree');
 
+    function engadirSpan(lista) {
+        let elementosFillos = lista.children;
+        for (const elemento of elementosFillos) {
+            const sublista = elemento.querySelector('ul');
+            if (sublista) {
+                sublista.remove();
+                elemento.innerHTML = `<span>${elemento.innerText}</span>`;
+                elemento.append(sublista);
+
+                engadirSpan(sublista);
+            }
+        }
+    }
+
+    engadirSpan(principal);
+
     principal.addEventListener('click', () => {
-        if (event.target.querySelector('ul'))
-            event.target.querySelector('ul').classList.toggle('hidden');
+        if (event.target.tagName == 'SPAN')
+            event.target
+                .closest('li')
+                .querySelector('ul')
+                .classList.toggle('hidden');
     });
 </script>
