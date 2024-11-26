@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- 
+        Crea unha páxina de texto que conteña un formulario con varios campos: input, select, radiobutton, checkbox, área de texto. 
+        
+        Escribe o código JavaScript necesario para mostrar por consola todos os valores dos campos do formulario cando este se envíe.
+        -->
+
+        <form>
+            <label for="text">Text</label>
+            <input type="text" name="text" id="texto" />
+            <br />
+            <label for="select">Select</label>
+            <select name="select" id="select">
+                <option value="opt1" selected>option1</option>
+                <br />
+                <option value="opt2">option2</option>
+                <br />
+                <option value="opt3">option3</option>
+                <br />
+            </select>
+            <br />
+            <label for="radio">Radiobutton</label><br />
+            radiobutton 1<input type="radio" name="radio" id="radio1" /><br />
+            radiobutton 2<input type="radio" name="radio" id="radio2" /><br />
+            <br />
+            <label for="ckb">Checkbox</label><br />
+            checkbox 1<input type="checkbox" name="ckb" id="ckb1" /><br />
+            checkbox 2<input type="checkbox" name="ckb" id="ckb2" /><br />
+            <br />
+            <label for="txtArea">Textarea</label><br />
+            <textarea name="txtArea" id="txtArea"></textarea>
+            <br /><br /><br />
+            <input type="submit" value="Enviar" />
+        </form>
+    </body>
+</html>
+
+<script>
+    let form = document.querySelector('form');
+
+    form.addEventListener('submit', () => {
+        // text
+        console.log(document.querySelector('#texto').value);
+
+        //select
+        console.log(document.getElementById('select').value);
+
+        //radio
+        let radiobutton1 = document.getElementById('radio1');
+        let radiobutton2 = document.getElementById('radio2');
+        //checkbox
+        let checkbox1 = document.getElementById('ckb1');
+        let checkbox2 = document.getElementById('ckb2');
+        //textArea
+        let textArea = document.getElementById('txtArea');
+    });
+</script>

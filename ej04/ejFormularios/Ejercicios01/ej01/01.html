@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- 
+        Crea unha páxina que teña un formulario con unha caixa de texto. Fai que cando a
+        caixa de texto teña o foco, o borde da mesma sexa verde e cando perda o foco volva
+        ao estilo por defecto.
+        Ademais, cando a caixa de texto perda o foco e estea baleira, debe escribirse por
+        consola unha mensaxe informando da situación.
+        -->
+
+        <form>
+            <label for="texto">Introduzca el texto:</label>
+            <input type="text" name="texto" id="texto" />
+        </form>
+    </body>
+</html>
+
+<style>
+    input {
+        border: 2px solid black;
+    }
+    input:focus {
+        border: 2px solid green;
+        outline: none;
+    }
+</style>
+
+<script>
+    let caja = document.getElementById('texto');
+
+    caja.addEventListener('focusout', () => {
+        if (caja.textContent == '') {
+            console.log('Caja vacía');
+        }
+    });
+</script>
