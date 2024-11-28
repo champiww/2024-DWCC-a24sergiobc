@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8" />
+        <title>Form validation: Task 3</title>
+        <style>
+            body {
+                background-color: #fff;
+                color: #333;
+                font: 1em / 1.4 Helvetica Neue, Helvetica, Arial, sans-serif;
+                padding: 1em;
+                margin: 0;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+        </style>
+    </head>
+
+    <body>
+        <form>
+            <label for="mail"
+                >I would like you to provide me with an e-mail address:</label
+            >
+            <input type="email" id="mail" name="mail" minlength="10" />
+            <button>Submit</button>
+        </form>
+    </body>
+    <script>
+        const email = document.getElementById('mail');
+
+        email.email.addEventListener('input', function (event) {
+            if (email.validity.typeMismatch) {
+                email.setCustomValidity('Please input an email address');
+                email.reportValidity();
+            } else if (email.validity.toShort) {
+                email.setCustomValidity('Please input more than 10');
+                email.reportValidity();
+            } else {
+                email.setCustomValidity('');
+            }
+        });
+    </script>
+</html>
