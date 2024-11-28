@@ -46,6 +46,7 @@
     let form = document.querySelector('form');
 
     form.addEventListener('submit', () => {
+        event.preventDefault();
         // text
         console.log(document.querySelector('#texto').value);
 
@@ -53,12 +54,22 @@
         console.log(document.getElementById('select').value);
 
         //radio
-        let radiobutton1 = document.getElementById('radio1');
-        let radiobutton2 = document.getElementById('radio2');
+        document
+            .querySelectorAll('input[type="radio"]:checked')
+            .forEach((element) => {
+                console.log(element.value);
+            });
+
         //checkbox
-        let checkbox1 = document.getElementById('ckb1');
-        let checkbox2 = document.getElementById('ckb2');
+        document
+            .querySelectorAll('input[type="checkbox"]:checked')
+            .forEach((element) => {
+                console.log(element.value);
+            });
+
         //textArea
-        let textArea = document.getElementById('txtArea');
+        console.log(document.getElementById('txtArea').value);
+
+        console.log('\n');
     });
 </script>
