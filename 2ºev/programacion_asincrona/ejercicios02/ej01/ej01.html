@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <p id="nomeGatas">Os nomes das gatas son</p>
+        <p id="numGatitos"></p>
+    </body>
+</html>
+
+<script>
+    const nomeGatas = document.getElementById('nomeGatas');
+    const numGatitos = document.getElementById('numGatitos');
+
+    function generarTextoNomeGatas(datos) {
+        let nomeGatasString = '';
+        datos.forEach((element) => {
+            if (datos.indexOf(element) == 0) {
+                nomeGatasString += ' ' + element.name;
+            } else if (datos.indexOf(element) + 1 == datos.length) {
+                nomeGatasString += ' e ' + element.name;
+            } else {
+                nomeGatasString += ', ' + element.name;
+            }
+        });
+
+        nomeGatas.innerText += nomeGatasString;
+    }
+
+    function generarTextoNumGatitos(datos) {
+        let numGatitosString = '';
+        let totalGatitos = 0;
+        let totalGatitosFemias = 0;
+        let totalGatitosMachos = 0;
+
+        datos.forEach((element) => {
+            element.kittens.forEach((element) => {
+                totalGatitos++;
+                element.gender == 'f'
+                    ? totalGatitosFemias++
+                    : totalGatitosMachos++;
+            });
+            numGatitosString = `Hai ${totalGatitos} gatiños: ${totalGatitosFemias} femias e ${totalGatitosMachos} machos.`;
+        });
+
+        numGatitos.innerText = numGatitosString;
+    }
+
+    function reqListener() {
+        const datos = this.response;
+        if (this.status == 200) {
+            generarTextoNomeGatas(datos);
+            generarTextoNumGatitos(datos);
+        }
+    }
+
+    const xhr = new XMLHttpRequest();
+    xhr.addEventListener('load', reqListener);
+    xhr.open(
+        'GET',
+        'https://mdn.github.io/learning-area/javascript/oojs/tasks/json/sample.json'
+    );
+    xhr.responseType = 'json';
+    xhr.send();
+</script>
