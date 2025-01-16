@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8" />
+
+        <title>Our superheroes</title>
+
+        <link
+            href="https://fonts.googleapis.com/css?family=Faster+One"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+
+    <body>
+        <header></header>
+
+        <section></section>
+    </body>
+</html>
+
+<script>
+    const header = document.querySelector('header');
+    const section = document.querySelector('section');
+
+    function fillHeaderInfo(datos) {
+        let h1 = document.createElement('h1');
+        h1.innerText = datos.squadName;
+        header.append(h1);
+        let p = document.createElement('p');
+        p.innerText = `Hometown: ${datos.homeTown} // Formed: ${datos.formed}`;
+        header.append(p);
+    }
+
+    function fillSectionInfo(datosCompletos) {
+        const members = datosCompletos.members;
+
+        members.forEach((element) => {
+            let article = document.createElement('article');
+
+            let h2 = document.createElement('h2');
+            h2.innerText = element.name;
+            let p1 = document.createElement('p');
+            p1.innerText = `Secret identity: ${element.secretIdentity}`;
+            let p2 = document.createElement('p');
+            p2.innerText = `Age: ${element.age}`;
+            let p3 = document.createElement('p');
+            p3.innerText = 'Superpowers:';
+            let ul = document.createElement('ul');
+            element.powers.forEach((element) => {
+                let li = document.createElement('li');
+                li.innerText = element;
+                ul.append(li);
+            });
+
+            article.append(h2);
+            article.append(p1);
+            article.append(p2);
+            article.append(p3);
+            article.append(ul);
+
+            section.append(article);
+        });
+    }
+
+    fetch(
+        'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json'
+    )
+        .then((response) => response.json())
+        .then((datos) => {
+            fillHeaderInfo(datos);
+            fillSectionInfo(datos);
+        });
+</script>
