@@ -41,17 +41,15 @@ function rellenarTbody(datos) {
 
     datos.abilities.forEach((element) => {
         let li = document.createElement('li');
-        li.innerText = element.ability.name;
+
+        let enlaceHabilidad = document.createElement('a');
+        enlaceHabilidad.innerText = element.ability.name;
+        enlaceHabilidad.href = element.ability.url;
+
+        li.append(enlaceHabilidad);
 
         //Lista url y nombre
         let ul2 = document.createElement('ul');
-
-        let liUrl = document.createElement('li');
-        let a = document.createElement('a');
-        a.href = element.ability.url;
-        a.innerText = 'Enlace';
-        liUrl.append(a);
-        ul2.append(liUrl);
 
         let liEsp = document.createElement('li');
         obtenerDatosSkillEsp(element.ability.url, liEsp);
