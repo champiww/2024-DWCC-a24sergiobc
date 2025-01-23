@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body></body>
+</html>
+
+<script>
+    const link = 'https://no-such-user.json';
+
+    function loadJson(url) {
+        return fetch(url).then((response) => {
+            if (response.status == 200) {
+                return response.json();
+            } else {
+                throw new Error(response.status);
+            }
+        });
+    }
+    loadJson(link).catch(console.log);
+
+    async function loadJsonAsync(url) {
+        try {
+            let response = await fetch(url);
+
+            if (!response.ok) throw new Error('Failed');
+
+            return await response.json();
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    loadJsonAsync(link);
+</script>
