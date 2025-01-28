@@ -1,13 +1,24 @@
 {
-    "posts": [
-        { "id": "1", "title": "a title" },
-        { "id": "2", "title": "another title" }
+    "clientes": [
+        {
+            "telefono": "123456789",
+            "enderezo": "Direccion01",
+            "pedidoTipico": "10 manzanas"
+        },
+        {
+            "telefono": "987654321",
+            "enderezo": "Direccion02",
+            "pedidoTipico": "10 platanos"
+        }
     ],
-    "comments": [
-        { "id": "1", "text": "a comment about post 1", "postId": "1" },
-        { "id": "2", "text": "another comment about post 1", "postId": "1" }
-    ],
-    "profile": {
-        "name": "typicode"
-    }
+    "pedidos": [
+        {
+            "telefonoCliente": "123456789",
+            "descripcion": "descripcion pedido 01"
+        },
+        {
+            "telefonoCliente": "987654321",
+            "descripcion": "descripcion pedido 02"
+        }
+    ]
 }
