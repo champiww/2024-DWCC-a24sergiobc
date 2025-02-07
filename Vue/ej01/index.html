@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script type="module" src="script.js" defer></script>
+    </head>
+    <body>
+        <div id="app">
+        <!-- O teu nome -->
+        <p>Nome: {{nome}}</p>
+        <!-- O ano actual -->
+        <p>Ano: {{year}}</p>
+        <!-- Usando unha expresión, suma 5 ao ano actual -->
+        <p>Ano+5: {{year+5}}</p>
+        <!-- Unha imaxe -->
+        <img :src style="width: 5em;">
+        <!-- Unha caixa de texto que conteña como texto o teu nome --><br>
+        <input type="text" :value>
+        <!-- Un contador inicializado a 0 --><br>
+        <p>Contador: {{count}}</p>
+        <!-- Dous botóns, un para incrementar nunha unidade o contador e outro  para decrementalo -->
+        <button @click="increment">Incrementar</button><br>
+        <button @click="decrement">Decrementar</button><br>
+        </div>
+    </body>
+</html>
+
+
+<!-- <div id="app">
+            <div :valor></div>
+            <p>{{ count }}</p>
+            <p v-html="html"></p>
+
+            <hr />
+
+            <button @click="increment">{{count}}</button>
+        </div> -->

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script type="module" src="script.js" defer></script>
+    </head>
+    <body>
+        <div id="app">
+            <input  :value="text" @input="changeText"/>
+            <p>{{ text }}</p>
+        </div>
+    </body>
+</html>
+
+
+<!-- <div id="app">
+            <div :valor></div>
+            <p>{{ count }}</p>
+            <p v-html="html"></p>
+
+            <hr />
+
+            <button @click="increment">{{count}}</button>
+        </div> -->
