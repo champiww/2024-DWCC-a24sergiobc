@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script type="module" src="script.js" defer></script>
+    </head>
+    <body>
+        <div id="app">
+            <button @click.middle="consoleLog">
+                Mensaje por consola con el click de la rueda
+            </button>
+            <br /><br />
+
+            <input @keydown="keydownClick" />
+            <br />
+            <p>{{input1}}</p>
+            <br />
+
+            <input @keyup.enter="enterClick" />
+            <br />
+            <p>{{input2}}</p>
+        </div>
+    </body>
+</html>
