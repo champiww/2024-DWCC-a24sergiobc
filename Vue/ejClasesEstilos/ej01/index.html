@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script type="module" src="script.js" defer></script>
+        <style>
+            .colorAzul {
+                color: blue;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <p :class="class01" @click="cambioP01">Texto de ejemplo</p>
+            <br><br>
+            <p :style="style02" @click="cambioP02">Texto de ejemplo</p>
+        </div>
+    </body>
+</html>
