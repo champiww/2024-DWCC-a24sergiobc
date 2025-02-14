@@ -7,13 +7,13 @@ createApp({
     data() {
         return {
             class01: {
-                activa:true,
-            }
+                activa: false,
+            },
         };
     },
     methods: {
         cambioP01() {
-            this.class01.activa = !this.class01.activa
-        }
+            this.class01.activa = !this.class01.activa;
+        },
     },
 }).mount('#app');

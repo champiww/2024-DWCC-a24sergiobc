@@ -8,12 +8,12 @@
         <style>
             .activa {
                 background-color: green;
-                border: 1px sold yellow;
+                border: 3px solid red;
             }
             td {
                 width: 4em;
                 height: 2em;
-                background-color: black;
+                border: 1px solid black;
             }
         </style>
     </head>
@@ -21,19 +21,8 @@
         <table id="app">
             <tbody>
                 <tr>
-                    <td :class="class01"></td>
-                    <td :class="class01"></td>
-                    <td :class="class01"></td>
-                </tr>
-                <tr>
-                    <td :class="class01"></td>
-                    <td :class="class01"></td>
-                    <td :class="class01"></td>
-                </tr>
-                <tr>
-                    <td :class="class01"></td>
-                    <td :class="class01"></td>
-                    <td :class="class01"></td>
+                    <td :class="class01" @click="cambioP01"></td>
+                    <td :class="class01" @click="cambioP01"></td>
                 </tr>
             </tbody>
         </table>
