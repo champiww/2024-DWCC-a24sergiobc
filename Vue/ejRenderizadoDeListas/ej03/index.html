@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script type="module" src="script.js" defer></script>
+    </head>
+    <body>
+        <div id="app">
+            <ul>
+                <li v-for="item of lista" :key="item.id">
+                    {{item}}
+                    <button @click="eliminarElemento">X</button>
+                </li>
+
+                <br />
+                <input type="text" name="" id="" />
+                <button @click="engadirElemento">Engadir elemento</button>
+            </ul>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script type="module" src="script.js" defer></script>
+        <style>
+            .claseA {
+                color: green;
+            }
+            .claseB {
+                color: red;
+            }
+            .hidden {
+                display: none;
+            }
+            .visible {
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <input type="text" v-model="textbox" @input="comprobarTexto" />
+            <br />
+            <p :class="ObjetoClases">Texto de ejemplo</p>
+            <br />
+            <button @click="alternarVisibilidad">Cambiar visibilidad</button>
+        </div>
+    </body>
+</html>
