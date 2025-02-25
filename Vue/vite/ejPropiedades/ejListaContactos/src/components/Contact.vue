@@ -20,9 +20,8 @@ export default {
     },
     data() {
         return {
-            estiloDisplay: 'display: block;',
+            estiloDisplay: 'display: none;',
             textoBoton: 'Mostrar detalles',
-            favoritoLocal: this.favorito,
         };
     },
     methods: {
@@ -35,18 +34,18 @@ export default {
                 this.textoBoton = 'Ocultar detalles';
             }
         },
-        cambiarFavorito() {
-            if (this.favoritoLocal == true) this.favoritoLocal = false;
-            else this.favoritoLocal = true;
-        },
     },
+    emits: ['cambiarFavoritoEvento', 'eliminarContactoEvento'],
 };
 </script>
 
 <template>
-    <template v-if="favoritoLocal == false">
+    <template v-if="favorito == false">
         <h2>{{ nombre }}</h2>
-        <div @click="cambiarFavorito" style="margin-bottom: 2em">
+        <div
+            @click="$emit('cambiarFavoritoEvento', correo)"
+            style="margin-bottom: 2em"
+        >
             <img
                 src="../assets/estrella_sin_relleno.png"
                 alt="estrella"
@@ -56,7 +55,10 @@ export default {
     </template>
     <template v-else>
         <h2>{{ nombre }} (Favorito)</h2>
-        <div @click="cambiarFavorito" style="margin-bottom: 2em">
+        <div
+            @click="$emit('cambiarFavoritoEvento', correo)"
+            style="margin-bottom: 2em"
+        >
             <img
                 src="../assets/estrella.jpg"
                 alt="estrella"
@@ -64,6 +66,7 @@ export default {
             />
         </div>
     </template>
+    <button @click="$emit('eliminarContactoEvento', correo)">Eliminar</button>
     <button @click="cambiarVisibilidad">{{ textoBoton }}</button>
     <p :style="estiloDisplay">Telefono: {{ telefono }}</p>
     <p :style="estiloDisplay">Correo: {{ correo }}</p>
