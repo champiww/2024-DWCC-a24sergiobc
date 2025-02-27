@@ -17,11 +17,12 @@ export default {
         };
     },
     methods: {
-        modificarDatos(nome, anoNacemento) {
-            const persoa = this.lista.find((persoa) => persoa.nome === nome);
-            console.log(persoa);
+        modificarDatos(nome, nomeNovo, anoNacemento) {
+            const persoa = this.listaPersonas.find(
+                (persoa) => persoa.nome === nome
+            );
             if (persoa) {
-                persoa.nome = nome;
+                persoa.nome = nomeNovo;
                 persoa.anoNacemento = anoNacemento;
             }
         },
@@ -43,7 +44,7 @@ export default {
         :key="persona.nome"
         :nome="persona.nome"
         :anoNacemento="persona.anoNacemento"
-        :eventoModificar="modificarDatos"
+        @eventoModificar="modificarDatos"
     />
 </template>
 

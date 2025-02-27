@@ -2,7 +2,10 @@
 export default {
     props: {
         nome: String,
-        anoNacemento: Number,
+        anoNacemento: {
+            type: Number,
+            required: true,
+        },
     },
     data() {
         return {
@@ -24,7 +27,12 @@ export default {
         <br />
         <button
             @click.prevent="
-                $emit('eventoModificar', this.nomeLocal, this.anoNacementoLocal)
+                $emit(
+                    'eventoModificar',
+                    this.nome,
+                    this.nomeLocal,
+                    this.anoNacementoLocal
+                )
             "
         >
             Modificar

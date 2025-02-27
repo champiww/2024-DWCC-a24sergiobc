@@ -2,13 +2,14 @@
 export default {
     props: {
         nome: String,
-        anoNacemento: Number,
+        anoNacemento: {
+            type: Number,
+            required: true,
+        },
     },
     data() {
         return {};
     },
-    methods: {},
-    emits: ['addContactEvent'],
 };
 </script>
 
